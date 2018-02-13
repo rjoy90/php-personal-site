@@ -1,0 +1,78 @@
+-- MySQL dump 10.13  Distrib 5.6.20, for Win32 (x86)
+--
+-- Host: localhost    Database: testdb
+-- ------------------------------------------------------
+-- Server version	5.6.20
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `hospitals`
+--
+
+DROP TABLE IF EXISTS `hospitals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hospitals` (
+  `ID` decimal(9,0) NOT NULL DEFAULT '0',
+  `name` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hospitals`
+--
+
+LOCK TABLES `hospitals` WRITE;
+/*!40000 ALTER TABLE `hospitals` DISABLE KEYS */;
+INSERT INTO `hospitals` VALUES (1,'hosp1'),(2,'hosp2'),(3,'hosp3'),(4,'hosp4'),(5,'hosp5');
+/*!40000 ALTER TABLE `hospitals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `userID` decimal(9,0) NOT NULL DEFAULT '0',
+  `userName` varchar(32) DEFAULT NULL,
+  `password` varchar(32) DEFAULT NULL,
+  `HospID` decimal(9,0) DEFAULT NULL,
+  PRIMARY KEY (`userID`),
+  KEY `user_hosp_fk` (`HospID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'24c9e15e52afc47c225b757e7bee1f9d','a722c63db8ec8625af6cf71cb8c2d939',1),(2,'7e58d63b60197ceb55a1c487989a3720','c1572d05424d0ecb2a65ec6a82aeacbf',2),(3,'92877af70a45fd6a2ed7fe81e1236b78','3afc79b597f88a72528e864cf81856d2',3),(4,'3f02ebe3d7929b091e3d8ccfde2f3bc6','fc2921d9057ac44e549efaf0048b2512',4),(5,'0a791842f52a0acfbb3a783378c066b8','d35f6fa9a79434bcd17f8049714ebfcb',5);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-03-25 20:06:20
