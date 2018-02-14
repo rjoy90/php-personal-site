@@ -56,5 +56,5 @@
             echo'</div>';//closes the table div
            // fclose($fh);
             fclose($fo);
-		require_once("templates/footer.php");	
+		require_once("../templates/footer.php");	
         ?>
